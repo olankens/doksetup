@@ -37,3 +37,38 @@ update_dokploy() {
     fi
 
 }
+
+update_system() {
+
+    # Update system
+    sudo apt update && sudo apt upgrade -y
+
+    # Create master
+    adduser dragos
+    usermod -aG sudo dragos
+
+    # Config passwordless
+    echo "dragos ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/dragos
+    sudo chmod 0440 /etc/sudoers.d/dragos
+
+    # Enable ssh key authentication
+    mkdir -p /home/dragos/.ssh
+    cp /root/.ssh/authorized_keys /home/dragos/.ssh/
+    chown -R dragos:dragos /home/dragos/.ssh
+    chmod 700 /home/dragos/.ssh
+    chmod 600 /home/dragos/.ssh/authorized_keys
+
+    # Remove ssh root access
+    # TODO: https://www.bitdoze.com/dokploy-install/#disable-root-ssh-access
+
+    # Reduce ssh session timeout
+    # TODO: https://www.bitdoze.com/dokploy-install/#limit-ssh-session-timeout
+
+    # Create swap
+    sudo fallocate -l 2G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+}
