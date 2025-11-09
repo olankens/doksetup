@@ -26,37 +26,34 @@ update_crowdsec() {
 
 update_dokploy() {
 
-    # Verify presence
+    # Update package
     local present=$(command -v docker &>/dev/null && docker info &>/dev/null && echo true || echo false)
-
-    # Launch install or update
-    if [[ $present == "false" ]]; then
-        curl -sSL https://dokploy.com/install.sh | sh
-    else
-        curl -sSL https://dokploy.com/install.sh | sh -- update
-    fi
+    curl -sSL https://dokploy.com/install.sh | sh "$([[ $present == "true" ]] && echo "-- update")"
 
 }
 
 update_system() {
 
+    # Handle parameters
+    local newuser=${1:-master}
+
     # Update system
     sudo apt update && sudo apt upgrade -y
 
     # Create master
-    adduser dragos
-    usermod -aG sudo dragos
+    adduser "$newuser"
+    usermod -aG sudo "$newuser"
 
     # Config passwordless
-    echo "dragos ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/dragos
-    sudo chmod 0440 /etc/sudoers.d/dragos
+    echo "$newuser ALL=(ALL) NOPASSWD:ALL" | sudo tee "/etc/sudoers.d/$newuser"
+    sudo chmod 0440 "/etc/sudoers.d/$newuser"
 
     # Enable ssh key authentication
-    mkdir -p /home/dragos/.ssh
-    cp /root/.ssh/authorized_keys /home/dragos/.ssh/
-    chown -R dragos:dragos /home/dragos/.ssh
-    chmod 700 /home/dragos/.ssh
-    chmod 600 /home/dragos/.ssh/authorized_keys
+    mkdir -p "/home/$newuser/.ssh"
+    cp /root/.ssh/authorized_keys "/home/$newuser/.ssh/"
+    chown -R "$newuser:$newuser" "/home/$newuser/.ssh"
+    chmod 700 "/home/$newuser/.ssh"
+    chmod 600 "/home/$newuser/.ssh/authorized_keys"
 
     # Remove ssh root access
     # TODO: https://www.bitdoze.com/dokploy-install/#disable-root-ssh-access
