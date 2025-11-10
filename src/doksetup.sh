@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=SC2155
+# shellcheck disable=SC2034,SC2155
 
 update_crowdsec() {
 
@@ -41,27 +41,6 @@ update_system() {
     # Update system
     sudo apt update && sudo apt upgrade -y
 
-    # Create master
-    adduser "$newuser"
-    usermod -aG sudo "$newuser"
-
-    # Config passwordless
-    echo "$newuser ALL=(ALL) NOPASSWD:ALL" | sudo tee "/etc/sudoers.d/$newuser"
-    sudo chmod 0440 "/etc/sudoers.d/$newuser"
-
-    # Enable ssh key authentication
-    mkdir -p "/home/$newuser/.ssh"
-    cp /root/.ssh/authorized_keys "/home/$newuser/.ssh/"
-    chown -R "$newuser:$newuser" "/home/$newuser/.ssh"
-    chmod 700 "/home/$newuser/.ssh"
-    chmod 600 "/home/$newuser/.ssh/authorized_keys"
-
-    # Remove ssh root access
-    # TODO: https://www.bitdoze.com/dokploy-install/#disable-root-ssh-access
-
-    # Reduce ssh session timeout
-    # TODO: https://www.bitdoze.com/dokploy-install/#limit-ssh-session-timeout
-
     # Create swap
     sudo fallocate -l 2G /swapfile
     sudo chmod 600 /swapfile
@@ -69,8 +48,29 @@ update_system() {
     sudo swapon /swapfile
     echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
+    # Create master
+    # adduser "$newuser"
+    # usermod -aG sudo "$newuser"
+
+    # Config passwordless
+    # echo "$newuser ALL=(ALL) NOPASSWD:ALL" | sudo tee "/etc/sudoers.d/$newuser"
+    # sudo chmod 0440 "/etc/sudoers.d/$newuser"
+
+    # Enable ssh key authentication
+    # mkdir -p "/home/$newuser/.ssh"
+    # cp /root/.ssh/authorized_keys "/home/$newuser/.ssh/"
+    # chown -R "$newuser:$newuser" "/home/$newuser/.ssh"
+    # chmod 700 "/home/$newuser/.ssh"
+    # chmod 600 "/home/$newuser/.ssh/authorized_keys"
+
+    # Remove ssh root access
+    # TODO: https://www.bitdoze.com/dokploy-install/#disable-root-ssh-access
+
+    # Reduce ssh session timeout
+    # TODO: https://www.bitdoze.com/dokploy-install/#limit-ssh-session-timeout
+
 }
 
-# update_system
+update_system
 update_crowdsec
 update_dokploy
