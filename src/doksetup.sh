@@ -72,4 +72,4 @@ update_system() {
 
 update_system
 update_crowdsec
-update_dokploy
+# update_dokploy
