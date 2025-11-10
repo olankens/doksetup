@@ -10,7 +10,13 @@
 
 ### Getting Started
 
-Blindly executing this is strongly discouraged.
+#### SSH Connection
+
+```shell
+ssh server-ip-address
+```
+
+#### Script Execution
 
 ```shell
 curl -fsSL https://raw.githubusercontent.com/olankens/doksetup/HEAD/src/doksetup.sh | bash

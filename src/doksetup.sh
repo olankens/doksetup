@@ -69,3 +69,7 @@ update_system() {
     echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 }
+
+update_system
+update_crowdsec
+update_dokploy
