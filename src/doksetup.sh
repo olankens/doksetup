@@ -19,9 +19,6 @@ update_crowdsec() {
     sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
     sudo iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
     sudo iptables -P INPUT DROP
-    # sudo apt install iptables-persistent -y
-    echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-    echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
     sudo DEBIAN_FRONTEND=noninteractive apt install -y iptables-persistent
     sudo netfilter-persistent save
 
