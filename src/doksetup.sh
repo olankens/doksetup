@@ -9,7 +9,7 @@ update_crowdsec() {
     sudo apt update && sudo apt install crowdsec
 
     # Update bouncer
-    sudo apt install crowdsec-firewall-bouncer-iptables -y
+    sudo apt install  -y crowdsec-firewall-bouncer-iptables
 
     # Create rules
     sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
@@ -19,7 +19,10 @@ update_crowdsec() {
     sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
     sudo iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
     sudo iptables -P INPUT DROP
-    yes | sudo apt install iptables-persistent -y
+    # sudo apt install iptables-persistent -y
+    echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+    echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+    sudo DEBIAN_FRONTEND=noninteractive apt install -y iptables-persistent
     sudo netfilter-persistent save
 
 }
