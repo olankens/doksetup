@@ -9,7 +9,7 @@ update_crowdsec() {
     sudo apt update && sudo apt install crowdsec
 
     # Update bouncer
-    sudo apt install  -y crowdsec-firewall-bouncer-iptables
+    sudo apt install -y crowdsec-firewall-bouncer-iptables
 
     # Create rules
     sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
@@ -28,7 +28,8 @@ update_dokploy() {
 
     # Update package
     local present=$(command -v docker &>/dev/null && docker info &>/dev/null && echo true || echo false)
-    curl -sSL https://dokploy.com/install.sh | sh "$([[ $present == "true" ]] && echo "-- update")"
+    [[ "$present" == "false" ]] && curl -sSL https://dokploy.com/install.sh | sh
+    curl -sSL https://dokploy.com/install.sh | sh -s -- --update
 
 }
 
@@ -71,5 +72,5 @@ update_system() {
 }
 
 # update_system
-update_crowdsec
+# update_crowdsec
 update_dokploy
