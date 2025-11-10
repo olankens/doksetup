@@ -19,7 +19,7 @@ update_crowdsec() {
     sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
     sudo iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
     sudo iptables -P INPUT DROP
-    sudo apt install iptables-persistent -y
+    yes | sudo apt install iptables-persistent -y
     sudo netfilter-persistent save
 
 }
