@@ -28,8 +28,8 @@ update_dokploy() {
 
     # Update package
     local present=$(command -v docker &>/dev/null && docker info &>/dev/null && echo true || echo false)
-    [[ "$present" == "false" ]] && curl -sSL https://dokploy.com/install.sh | sh
-    curl -sSL https://dokploy.com/install.sh | sh -s -- --update
+    [[ "$present" == "false" ]] && curl -sSL https://dokploy.com/install.sh | sudo sh
+    curl -sSL https://dokploy.com/install.sh | sudo sh -s -- update
 
 }
 
@@ -72,5 +72,5 @@ update_system() {
 }
 
 # update_system
-# update_crowdsec
+update_crowdsec
 update_dokploy
