@@ -1,7 +1,7 @@
 <hr>
 
 <div align="center">
-  <img src=".assets/icon.svg" width="132">
+  <img src=".assets/ico.svg" width="132">
   <h1><samp>DOKSETUP</samp></h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas fringilla lectus ut sollicitudin. Sed malesuada purus iaculis laoreet feugiat. Donec condimentum ante libero. Morbi et ex faucibus, pharetra augue eu, fringilla est. Duis elementum posuere nisl quis imperdiet. Sed finibus leo turpis, id sodales mi porta vel.</p>
 </div>
