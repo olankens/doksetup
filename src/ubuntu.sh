@@ -13,7 +13,7 @@ invoke_wrapper() {
     clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
 
     # Remove timeouts
-    echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /private/etc/sudoers.d/disable_timeout >/dev/null
+    echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/disable_timeout >/dev/null
 
     # Output progress
     # TODO: Output stdout/stderr to a log file
@@ -34,7 +34,7 @@ invoke_wrapper() {
     done
 
     # Revert timeouts
-    sudo rm /private/etc/sudoers.d/disable_timeout 2>/dev/null
+    sudo rm /etc/sudoers.d/disable_timeout 2>/dev/null
 
     # Output newline
     printf "\n"
