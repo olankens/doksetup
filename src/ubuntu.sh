@@ -12,6 +12,9 @@ invoke_wrapper() {
     sudo -v || return 1
     clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
 
+    # Remove timeouts
+    echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /private/etc/sudoers.d/disable_timeout >/dev/null
+
     # Output progress
     # TODO: Output stdout/stderr to a log file
     local bigness=$((${#welcome} / $(echo "$welcome" | wc -l)))
@@ -29,6 +32,9 @@ invoke_wrapper() {
         local elapsed=$(printf "%02d:%02d:%02d\n" $((elapsed / 3600)) $(((elapsed % 3600) / 60)) $((elapsed % 60)))
         printf "$current" "$written" "$minimum" "$maximum" "$elapsed" && ((minimum++))
     done
+
+    # Revert timeouts
+    sudo rm /private/etc/sudoers.d/disable_timeout 2>/dev/null
 
     # Output newline
     printf "\n"
