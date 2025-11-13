@@ -9,7 +9,7 @@ invoke_wrapper() {
 	local members=("${@:2}")
 
 	# Prompt password
-	sudo -v || return 1
+	bash -c 'sudo -v ; local results=$? ; printf "\n" ; [[ $results -ne 0 ]] && return 1'
 	clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
 
 	# Remove timeouts
