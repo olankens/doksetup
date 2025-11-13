@@ -10,8 +10,6 @@
 
 ### For Almalinux
 
-Fusce cursus, ex vitae dignissim luctus, massa dui cursus nibh, ut sagittis urna turpis et lacus. Sed volutpat magna sed porttitor viverra. Phasellus arcu lectus, mattis non dignissim ac, dictum quis nibh. Nulla vestibulum augue eu metus dapibus congue. Vivamus id tortor feugiat, aliquam neque vel, consequat tellus.
-
 <img src="https://lipsum.app/632x640/333/fff" width="49.375%"/><img src=".assets/1x1.png" width="1.25%"/><img src="https://lipsum.app/632x640/333/fff" width="49.375%"/>
 
 ```shell
@@ -21,8 +19,6 @@ curl -fsSL https://raw.githubusercontent.com/olankens/doksetup/HEAD/src/almalinu
 <hr>
 
 ### For Ubuntu
-
-Fusce cursus, ex vitae dignissim luctus, massa dui cursus nibh, ut sagittis urna turpis et lacus. Sed volutpat magna sed porttitor viverra. Phasellus arcu lectus, mattis non dignissim ac, dictum quis nibh. Nulla vestibulum augue eu metus dapibus congue. Vivamus id tortor feugiat, aliquam neque vel, consequat tellus.
 
 <img src="https://lipsum.app/632x640/333/fff" width="49.375%"/><img src=".assets/1x1.png" width="1.25%"/><img src="https://lipsum.app/632x640/333/fff" width="49.375%"/>
 
