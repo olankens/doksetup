@@ -12,7 +12,7 @@ invoke_wrapper() {
 	clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
 
 	# Prompt password
-	bash -c 'sudo -v ; results=$? ; printf "\n" ; [[ $results -ne 0 ]] && return 1'
+	bash -c 'sudo -v ; results=$? ; printf "\n" ; [[ $results -ne 0 ]] && exit 1'
 
 	# Remove timeouts
 	echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/disable_timeout" >/dev/null
