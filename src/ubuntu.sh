@@ -8,9 +8,11 @@ invoke_wrapper() {
 	local welcome=${1}
 	local members=("${@:2}")
 
+	# Output welcome
+	clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
+
 	# Prompt password
 	bash -c 'sudo -v ; local results=$? ; printf "\n" ; [[ $results -ne 0 ]] && return 1'
-	clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
 
 	# Remove timeouts
 	echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/disable_timeout" >/dev/null
