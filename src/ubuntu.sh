@@ -1,6 +1,39 @@
 #!/bin/bash
 
-# shellcheck disable=SC2034,SC2155
+# shellcheck disable=SC2015,SC2034,SC2059,SC2155
+
+invoke_wrapper() {
+
+    # Handle parameters
+    local welcome=${1}
+    local members=("${@:2}")
+
+    # Prompt password
+    sudo -v || return 1
+    clear && printf "\033[92m%s\033[00m\n\n" "$welcome"
+
+    # Output progress
+    # TODO: Output stdout/stderr to a log file
+    local bigness=$((${#welcome} / $(echo "$welcome" | wc -l)))
+    local heading="\r%-"$((bigness - 19))"s   %-5s   %-8s\n\n"
+    local loading="\033[93m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\b\033[0m"
+    local failure="\033[91m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\n\033[0m"
+    local success="\033[92m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\n\033[0m"
+    printf "$heading" "FUNCTION" "ITEMS" "DURATION"
+    local minimum=1 && local maximum=${#members[@]}
+    for element in "${members[@]}"; do
+        local written=$(basename "$(echo "$element" | cut -d "'" -f 1)" | tr "[:lower:]" "[:upper:]")
+        local started=$(date +"%s") && printf "$loading" "$written" "$minimum" "$maximum" "--:--:--"
+        eval "$element" >/dev/null 2>&1 && local current="$success" || local current="$failure"
+        local extinct=$(date +"%s") && elapsed=$((extinct - started))
+        local elapsed=$(printf "%02d:%02d:%02d\n" $((elapsed / 3600)) $(((elapsed % 3600) / 60)) $((elapsed % 60)))
+        printf "$current" "$written" "$minimum" "$maximum" "$elapsed" && ((minimum++))
+    done
+
+    # Output newline
+    printf "\n"
+
+}
 
 update_crowdsec() {
 
@@ -35,9 +68,6 @@ update_dokploy() {
 
 update_system() {
 
-    # Handle parameters
-    local newuser=${1:-master}
-
     # Update system
     sudo apt update && sudo apt upgrade -y
 
@@ -48,29 +78,26 @@ update_system() {
     sudo swapon /swapfile
     echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
-    # Create master
-    # adduser "$newuser"
-    # usermod -aG sudo "$newuser"
+}
 
-    # Config passwordless
-    # echo "$newuser ALL=(ALL) NOPASSWD:ALL" | sudo tee "/etc/sudoers.d/$newuser"
-    # sudo chmod 0440 "/etc/sudoers.d/$newuser"
+main() {
 
-    # Enable ssh key authentication
-    # mkdir -p "/home/$newuser/.ssh"
-    # cp /root/.ssh/authorized_keys "/home/$newuser/.ssh/"
-    # chown -R "$newuser:$newuser" "/home/$newuser/.ssh"
-    # chmod 700 "/home/$newuser/.ssh"
-    # chmod 600 "/home/$newuser/.ssh/authorized_keys"
-
-    # Remove ssh root access
-    # TODO: https://www.bitdoze.com/dokploy-install/#disable-root-ssh-access
-
-    # Reduce ssh session timeout
-    # TODO: https://www.bitdoze.com/dokploy-install/#limit-ssh-session-timeout
+    read -r -d "" welcome <<-EOD
+		+--------------------------------------------------------------------+
+		|                                                                    |
+		|  > DOKSETUP                                                        |
+		|                                                                    |
+		|  > DOKPLOY SETUP FOR YOUR SERVERS                                  |
+		|                                                                    |
+		+--------------------------------------------------------------------+
+	EOD
+    local members=(
+        "update_system"
+        "update_crowdsec"
+        "update_dokploy"
+    )
+    invoke_wrapper "$welcome" "${members[@]}"
 
 }
 
-update_system
-update_crowdsec
-update_dokploy
+main "$@"
