@@ -16,23 +16,18 @@ invoke_wrapper() {
     echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/disable_timeout" >/dev/null
 
     # Output progress
+    local logfile="/tmp/doksetup_$(date +%Y%m%d_%H%M%S).log"
     local bigness=$((${#welcome} / $(echo "$welcome" | wc -l)))
-    local heading="\r%-"$((bigness - 19))"s   %-5s   %-8s\n\n"
-    local loading="\033[93m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\b\033[0m"
-    local failure="\033[91m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\n\033[0m"
-    local success="\033[92m\r%-"$((bigness - 19))"s   %02d/%02d   %-8s\n\033[0m"
+    local heading="\r%-"$((bigness - 19))"s | %-5s | %-8s\n\n"
+    local loading="\033[93m\r%-"$((bigness - 19))"s | %02d/%02d | %-8s\b\033[0m"
+    local failure="\033[91m\r%-"$((bigness - 19))"s | %02d/%02d | %-8s\n\033[0m"
+    local success="\033[92m\r%-"$((bigness - 19))"s | %02d/%02d | %-8s\n\033[0m"
     printf "$heading" "FUNCTION" "ITEMS" "DURATION"
-
-    # Create log file with timestamp
-    local log_file="/tmp/doksetup_$(date +%Y%m%d_%H%M%S).log"
-    echo "Logging output to: $log_file"
-
     local minimum=1 && local maximum=${#members[@]}
     for element in "${members[@]}"; do
         local written=$(basename "$(echo "$element" | cut -d "'" -f 1)" | tr "[:lower:]" "[:upper:]")
         local started=$(date +"%s") && printf "$loading" "$written" "$minimum" "$maximum" "--:--:--"
-        echo "=== $(date) - Running: $element ===" >> "$log_file"
-        eval "$element" >> "$log_file" 2>&1 && local current="$success" || local current="$failure"
+        eval "$element" >> "$logfile" 2>&1 && local current="$success" || local current="$failure"
         local extinct=$(date +"%s") && elapsed=$((extinct - started))
         local elapsed=$(printf "%02d:%02d:%02d\n" $((elapsed / 3600)) $(((elapsed % 3600) / 60)) $((elapsed % 60)))
         printf "$current" "$written" "$minimum" "$maximum" "$elapsed" && ((minimum++))
