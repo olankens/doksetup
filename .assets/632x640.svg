@@ -1,0 +1,186 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="632" height="640"><defs><style xmlns="http://www.w3.org/1999/xhtml" type="text/css">@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url('https://frame0.app/fonts/Inter-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100;
+  src: url('https://frame0.app/fonts/Inter-ThinItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('https://frame0.app/fonts/Inter-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 200;
+  src: url('https://frame0.app/fonts/Inter-ExtraLightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://frame0.app/fonts/Inter-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300;
+  src: url('https://frame0.app/fonts/Inter-LightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/Inter-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/Inter-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://frame0.app/fonts/Inter-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 500;
+  src: url('https://frame0.app/fonts/Inter-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://frame0.app/fonts/Inter-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 600;
+  src: url('https://frame0.app/fonts/Inter-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/Inter-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://frame0.app/fonts/Inter-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 800;
+  src: url('https://frame0.app/fonts/Inter-ExtraBoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/SourceSerifPro-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/SourceSerifPro-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/SourceSerifPro-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/SourceSerifPro-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/IBMPlexMono-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/IBMPlexMono-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/IBMPlexMono-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Loranthus';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/Loranthus-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Loranthus';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/Loranthus-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Loranthus';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/Loranthus-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Loranthus';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/Loranthus-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Redacted Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/RedactedScript-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Redacted Script';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://frame0.app/fonts/RedactedScript-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Jojoba';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://frame0.app/fonts/Jojoba.ttf') format('truetype');
+}</style></defs><g><g><g><g><path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 2.5 2.5 C 151.5221299436875 4.432125869046897 299.352743803151 5.018233719121665 629.5 2.5 M 2.5 2.5 C 210.34862645184623 0.2519512474872174 418.5806881921366 0.16684543493762627 629.5 2.5 M 629.5 2.5 C 627.5205750297755 1.6772622931748629 631.1281538438052 3.114194320514798 629.5 2.5 M 629.5 2.5 C 629.2401524052955 3.5967560200951993 629.6098460153677 1.0770078121684494 629.5 2.5 M 629.5 2.5 C 629.1895640417748 136.07828769432382 629.4571324154549 270.41056888271123 629.5 637.5 M 629.5 2.5 C 629.3980923620798 232.03050960069524 629.1565889445878 461.82581517491496 629.5 637.5 M 629.5 637.5 C 629.0346018504351 636.2659223545343 631.3379757236689 638.4261572230607 629.5 637.5 M 629.5 637.5 C 627.8156115190126 635.3836342572234 627.2092304334976 639.1622553615831 629.5 637.5 M 629.5 637.5 C 416.0951007413678 635.5910406579263 202.87853325884788 635.6807327975519 2.5 637.5 M 629.5 637.5 C 430.6162920416333 635.3877170753441 232.52398858424277 635.6453869891129 2.5 637.5 M 2.5 637.5 C 1.9214294981211424 637.3233038056642 1.1980032157152891 636.8132257927209 2.5 637.5 M 2.5 637.5 C 3.3305764959193764 636.6580345242285 0.9845190302468838 637.5181090473197 2.5 637.5 M 2.5 637.5 C 1.7139549261517821 443.4017027209513 1.8738618618436156 249.45384273212397 2.5 2.5 M 2.5 637.5 C 0.35056505208834965 396.10304409572854 0.2853166699968277 154.95886946599924 2.5 2.5 M 2.5 2.5 C 2.937588734552264 1.3458055723458529 4.3807827066630125 1.7620333302766085 2.5 2.5 M 2.5 2.5 C 4.352518649492413 1.427729648258537 2.1378510878421366 1.2098612277768552 2.5 2.5 M 2.5 2.5 C 2.5 2.5 2.5 2.5 2.5 2.5 M 2.5 2.5 C 2.5 2.5 2.5 2.5 2.5 2.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/></g></g></g></g></svg>

@@ -11,6 +11,8 @@
 
 <h3 align="center">For Ubuntu</h3>
 
+<picture><source media="(prefers-color-scheme: dark)" srcset=".assets/632x640-dark.svg"><img src=".assets/632x640.svg" width="49.375%"></picture><img src=".assets/1x1.gif" width="1.25%"/><picture><source media="(prefers-color-scheme: dark)" srcset=".assets/632x640-dark.svg"><img src=".assets/632x640.svg" width="49.375%"></picture>
+
 <p align="center">Blindly executing this is strongly discouraged.</p>
 
 ```shell
