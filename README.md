@@ -15,17 +15,7 @@
 
 ---
 
-### For AlmaLinux
-
-Blindly executing this is strongly discouraged.
-
-```shell
-...
-```
-
----
-
-### For Ubuntu
+### Getting Started
 
 Blindly executing this is strongly discouraged.
 
