@@ -15,7 +15,7 @@
 
 ---
 
-<h3 align="center">For Almalinux</h3>
+<h3 align="center">For AlmaLinux</h3>
 
 <p align="center">Blindly executing this is strongly discouraged.</p>
 
