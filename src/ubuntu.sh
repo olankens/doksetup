@@ -84,11 +84,11 @@ update_system() {
 	sudo apt update && sudo apt upgrade -y
 
 	# Create swap
-	sudo fallocate -l 2G /swapfile
-	sudo chmod 600 /swapfile
-	sudo mkswap /swapfile
-	sudo swapon /swapfile
-	echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+	[[ -f "/swapfile" ]] || sudo fallocate -l 2G "/swapfile"
+	sudo chmod 600 "/swapfile"
+	sudo mkswap "/swapfile"
+	sudo swapon "/swapfile"
+	grep -q "/swapfile" "/etc/fstab" || echo "/swapfile none swap sw 0 0" | sudo tee -a "/etc/fstab"
 
 }
 
