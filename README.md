@@ -16,7 +16,7 @@ This post-installation script prepares an [Ubuntu](https://ubuntu.com/download/s
 
 <hr>
 
-<!-- # GUIDANCE -->
+# GUIDANCE
 
 ### Getting Started
 
